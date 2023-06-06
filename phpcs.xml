@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards for Blob projects">
+
+	<description>Sniffs for WordPress projects, with minor modifications for Blob</description>
+
+	<!-- Exclude WP Core folders and files from being checked. -->
+	<exclude-pattern>/www/wp-admin/*</exclude-pattern>
+	<exclude-pattern>/www/wp-includes/*</exclude-pattern>
+	<exclude-pattern>/www/index.php</exclude-pattern>
+	<exclude-pattern>/www/xmlrpc.php</exclude-pattern>
+	<exclude-pattern>/www/wp-content/plugins/[!kdweb]*/**</exclude-pattern>
+
+	<!-- Exclude the Composer Vendor directory. -->
+	<exclude-pattern>/www/wp-content/packages/*</exclude-pattern>
+
+	<!-- Exclude the Node Modules directory. -->
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+
+	<!-- Include the WordPress-Extra standard. -->
+	<rule ref="WordPress" />
+
+	<!-- Allow global variables overwrite in the config file -->
+	<rule ref="WordPress.WP.GlobalVariablesOverride">
+		<exclude-pattern>/www/wp-config.php</exclude-pattern>
+	</rule>
+
+	<!-- Configuration -->
+	<config name="minimum_supported_wp_version" value="5.4" />
+	<config name="text_domain" value="blob,default" />
+
+	<!-- Add in some extra rules from other standards. -->
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+	<rule ref="Generic.Commenting.Todo"/>
+
+</ruleset>

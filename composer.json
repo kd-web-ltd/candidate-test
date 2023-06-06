@@ -1,0 +1,75 @@
+{
+	"name": "kdweb/kdweb",
+	"version": "0.0.1",
+	"description": "WordPress project for KD Web",
+	"authors": [
+		{
+			"name": "KD Web",
+			"email": "arpad@kdweb.co.uk"
+		}
+	],
+	"keywords": [
+		"WordPress",
+		"Theme",
+		"Template",
+		"Skeleton",
+		"Starter"
+	],
+	"config": {
+		"lock": true,
+		"process-timeout": 0,
+		"preferred-install": "source",
+		"vendor-dir": "www/wp-content/packages",
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"extra": {
+		"phpcodesniffer-search-detph": 20,
+		"installer-paths": {
+			"www/wp-content/mu-plugins/classic-editor": [
+				"wpackagist-plugin/classic-editor"
+			],
+			"www/wp-content/mu-plugins/advanced-custom-fields-pro": [
+				"wp-plugin/advanced-custom-fields-pro"
+			],
+			"www/wp-content/mu-plugins/polylang-pro": [
+				"wp-plugin/polylang-pro"
+			],
+			"www/wp-content/{$name}": [
+				"type:wordpress-dropin"
+			],
+			"www/wp-content/mu-plugins/": [
+				"type:wordpress-muplugin"
+			],
+			"www/wp-content/plugins/{$name}": [
+				"type:wordpress-plugin"
+			],
+			"www/wp-content/themes/{$name}": [
+				"type:wordpress-theme"
+			]
+		},
+		"wordpress-install-dir": "www"
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:kd-web-ltd/wp-plugin-kdweb-project.git"
+		}
+	],
+	"require-dev": {
+		"composer/installers": "^1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1",
+		"squizlabs/php_codesniffer": "^3",
+		"wp-coding-standards/wpcs": "^2"
+	},
+	"require": {
+		"josegonzalez/dotenv": "dev-master",
+		"wp-plugin/kdweb-project": "^1"
+	}
+}

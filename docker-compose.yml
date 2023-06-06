@@ -1,0 +1,21 @@
+version: "3"
+services:
+  php:
+    image: arpadkdweb/php:8.2.3
+    ports:
+      - 80:80
+    volumes:
+      - ./www/.htaccess:/var/www/html/.htaccess
+      - ./www/wp-config.php:/var/www/html/wp-config.php
+      - ./www/wp-content:/var/www/html/wp-content
+    environment:
+      DB_NAME: project
+      DB_USER: root
+      DB_PASSWORD: pass
+      WP_VERSION: latest
+  mysql:
+    image: mysql:5.7.41
+    environment:
+      MYSQL_DATABASE: project
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_PASSWORD: pass
